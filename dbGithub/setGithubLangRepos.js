@@ -11,8 +11,9 @@ async function requestLang(user) {
       let resData = response.data
       return resData
     })
-    const lang = []
-    langPromises.forEach( obj => {
+    const langObjects = await Promise.all(langPromises);
+    const lang = {}
+    langObjects.forEach( obj => {
       Object.keys(obj).forEach( key => {
         if(!lang[key]){
           lang[key] = obj[key]
@@ -22,7 +23,7 @@ async function requestLang(user) {
         }
       })
     })
-    return langPromises
+    return lang
   }
   catch(err){
     console.log(err)
