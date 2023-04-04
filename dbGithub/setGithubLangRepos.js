@@ -13,13 +13,13 @@ async function requestLang(user) {
     })
     const langObjects = await Promise.all(langPromises);
     const lang = {}
-    langObjects.forEach( obj => {
-      Object.keys(obj).forEach( key => {
+    langObjects.forEach( async obj => {
+      Object.keys(obj).forEach( async key => {
         if(!lang[key]){
-          lang[key] = obj[key]
+          lang[key] = await obj[key]
         } 
         else {
-          lang[key] += obj[key]
+          lang[key] += await obj[key]
         }
       })
     })

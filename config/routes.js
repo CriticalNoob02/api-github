@@ -8,22 +8,21 @@ const requestRepos = require('../dbGithub/setGithubDataRepos')
 const requestLang = require('../dbGithub/setGithubLangRepos')
 
 routes.get('/base/:user', async ( req,res ) => {
-    let user = await req.params.user
+    let user = req.params.user
     let request = await requestBase(user)
-    return await res.json(request)
+    return res.json(request)
 })
 
 routes.get('/repos/:user', async ( req,res ) => {
-    let user = await req.params.user
+    let user = req.params.user
     let request = await requestRepos(user)
-    return await res.json(request)
+    return res.json(request)
 })
 
 routes.get('/lang/:user', async ( req,res ) => {
-    let user = await req.params.user
+    let user = req.params.user
     let request = await requestLang(user)
-    console.log( await request)
-    return await res.json(request)
+    return res.json(request)
 })
 
 module.exports = routes
