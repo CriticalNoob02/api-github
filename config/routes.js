@@ -7,21 +7,36 @@ const requestBase =  require('../dbGithub/setGithubDataBase')
 const requestRepos = require('../dbGithub/setGithubDataRepos')
 const requestLang = require('../dbGithub/setGithubLangRepos')
 
-routes.get('/base/:user', async ( req,res ) => {
+routes.get('/', (req, res) => {
+    return res.json(
+        "algoo"
+    )
+})
+
+routes.get('/:user/base', async ( req,res ) => {
     let user = req.params.user
     let request = await requestBase(user)
+    // teste
+    if(!request) console.log("\nErro ao recuperar informação do github!")
+    else console.log("\nConexão bem sucedida")
     return res.json(request)
 })
 
-routes.get('/repos/:user', async ( req,res ) => {
+routes.get('/:user/repos', async ( req,res ) => {
     let user = req.params.user
     let request = await requestRepos(user)
+    // teste
+    if(!request) console.log("\nErro ao recuperar informação do github!")
+    else console.log("\nConexão bem sucedida")
     return res.json(request)
 })
 
-routes.get('/lang/:user', async ( req,res ) => {
+routes.get('/:user/lang', async ( req,res ) => {
     let user = req.params.user
     let request = await requestLang(user)
+    // teste
+    if(!request) console.log("\nErro ao recuperar informação do github!")
+    else console.log("\nConexão bem sucedida")
     return res.json(request)
 })
 
