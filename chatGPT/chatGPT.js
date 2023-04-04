@@ -26,9 +26,8 @@ async function getChatResponse(Req) {
     const completion = await openai.createCompletion({
         model: "text-davinci-003",
         prompt: Req,
-        temperature: 0,6,
-    })
-    
+        temperature: 0
+    })  
 }
 
 openai.createCompletion
