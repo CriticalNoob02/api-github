@@ -5,7 +5,7 @@ const cors = require('cors')
 const bodyParser = require('body-parser')
 
 // Configurando app;
-const portApp = 21262
+const PORT = 21262
 const routes = require('./config/routes')
 
 const app = express()
@@ -19,6 +19,6 @@ app.use(routes)
 
 
 // Run do server
-app.listen(portApp, () => {
-    console.log(`Servidor rodando: http://localhost:${portApp}`)
+app.listen(PORT, () => {
+    console.log(`Servidor rodando na porta : http://localhost:${PORT}\nPronto para conectar!`)
 })
