@@ -1,16 +1,13 @@
 const express = require('express')
 const routes = express.Router()
 
-
 // Importando dados da api;
 const requestBase =  require('../dbGithub/setGithubDataBase')
 const requestRepos = require('../dbGithub/setGithubDataRepos')
 const requestLang = require('../dbGithub/setGithubLangRepos')
 
-routes.get('/', (req, res) => {
-    return res.json(
-        "algoo"
-    )
+routes.get('/test', (req, res) => {
+    return res.send( {message: "Test"} )
 })
 
 routes.get('/:user/base', async ( req,res ) => {
