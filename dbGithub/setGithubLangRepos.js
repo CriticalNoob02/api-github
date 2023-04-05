@@ -3,26 +3,28 @@ const axios = require('axios')
 
 async function requestLang(user) {
   try{
+    const lang = new Object()
+
     let response = await axios.get(`https://api.github.com/users/${user}/repos`)
     let resData = response.data
-    const langs = resData.map((line) =>{ return line.languages_url })
-    const langPromises = await langs.map(async url => { 
-      let response = await axios.get(url)
-      let resData = response.data
-      return resData
+    let langs = resData.map( line => line.languages_url )
+    const langPromises = langs.map( async url => {
+      let response2 = await axios.get(url)
+      let resData2 = response2.data
+      return resData2
     })
-    const langObjects = await Promise.all(langPromises);
-    const lang = {}
-    langObjects.forEach( async obj => {
-      Object.keys(obj).forEach( async key => {
-        if(!lang[key]){
-          lang[key] = await obj[key]
-        } 
-        else {
-          lang[key] += await obj[key]
+    let data = await Promise.all(langPromises)
+    console.log(data)
+    data.forEach(obj => {
+      Object.keys(obj).forEach(key => {
+        if (!lang[key]) {
+          lang[key] = obj[key]
+        } else {
+          lang[key] += obj[key]
         }
       })
     })
+    console.log(lang)
     return lang
   }
   catch(err){
