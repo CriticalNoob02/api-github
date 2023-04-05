@@ -14,7 +14,6 @@ async function requestLang(user) {
       return resData2
     })
     let data = await Promise.all(langPromises)
-    console.log(data)
     data.forEach(obj => {
       Object.keys(obj).forEach(key => {
         if (!lang[key]) {
