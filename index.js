@@ -5,7 +5,7 @@ const cors = require('cors')
 const bodyParser = require('body-parser')
 
 // Configurando app;
-const PORT = 21262
+const PORT = 5100
 const routes = require('./config/routes')
 
 const app = express()
