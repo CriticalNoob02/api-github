@@ -5,7 +5,7 @@ const octokit = new Octokit({
     auth: process.env.TOKEN_GITHUB
 });
 
-async function getDate(user) {
+async function requestDates(user) {
     try {
       const response = await octokit.request("GET /users/{username}/events", {
         username: user,
@@ -28,4 +28,4 @@ async function getDate(user) {
       }
 }
 
-module.exports = getDate
+module.exports = requestDates

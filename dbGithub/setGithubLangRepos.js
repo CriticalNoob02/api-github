@@ -5,7 +5,6 @@ const octokit = new Octokit({
     auth: process.env.TOKEN_GITHUB
 })
 
-
 async function requestLang(user) {
   try{
     const lang = new Object()
