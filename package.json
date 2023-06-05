@@ -1,11 +1,14 @@
 {
+  "homepage": "https://CriticalNoob02.github.io/ApiGithub",
   "name": "api",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "start": "nodemon index.js"
+    "start": "nodemon index.js",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "author": "",
   "license": "ISC",
