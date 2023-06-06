@@ -14,13 +14,18 @@ async function requestDates(user) {
       console.log(`Conectado! Status: ${response.status}.`)
       
       const data = response.data
-      const dates = []
+      const dates = {}
 
       for(let i = 0; i < data.length; i++){
-        let date = data[i].created_at
-        dates.push(date.slice(0,10))
+        let date = data[i].created_at;
+        let dateFormat = date.slice(0, 10).split('-').reverse().join('-');
+
+        if (dateFormat in dates) {
+          dates[dateFormat] += 1;
+        } else {
+          dates[dateFormat] = 1;
+        }
       } 
-      console.log(dates)
       return dates
     } catch (error) {
         console.log(`Error! Status: ${error.status}.`)
