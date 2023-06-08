@@ -20,5 +20,5 @@ app.use(routes)
 
 // Run do server
 app.listen(PORT, () => {
-    console.log(`Servidor rodando na porta : http://localhost:${PORT}\nPronto para conectar!`)
+    console.log(`\nServidor rodando na porta : http://localhost:${PORT}\nPronto para conectar! 🚀`)
 })
