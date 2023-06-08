@@ -30,7 +30,6 @@ async function requestLang(user) {
         }
       })
     })
-    console.log(lang)
     return lang
   }
   catch(err){
