@@ -2,6 +2,7 @@
 const requestBase =  require('../dbGithub/setGithubDataBase')
 const requestRepos = require('../dbGithub/setGithubDataRepos')
 const requestLang = require('../dbGithub/setGithubLangRepos')
+const requestDates = require('../dbGithub/setGithubDataEvents')
 
 it('Test in requestBase', async () => {
     const data = requestBase("CriticalNoob02")
@@ -17,6 +18,12 @@ it('Test in requestRepos', async () => {
 
 it('Test in requestLang', async () => {
     const data = requestLang("CriticalNoob02")
+
+    await expect(data).resolves.not.toBe({})
+})
+
+it('Test in requestLang', async () => {
+    const data = requestDates("CriticalNoob02")
 
     await expect(data).resolves.not.toBe({})
 })
