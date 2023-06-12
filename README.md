@@ -31,6 +31,13 @@ Compilado de todas as linhas de codigo de cada linguagem usada nos repositórios
 }
 
 - `http://localhost:{PORT}/{USER}/lang`
+
+Compilado de datas dos últimos eventos do github
+{
+    datas: quantidade de eventos
+}
+
+- `http://localhost:{PORT}/{USER}/events`
  
 ## Atualizações 🎉:
 
